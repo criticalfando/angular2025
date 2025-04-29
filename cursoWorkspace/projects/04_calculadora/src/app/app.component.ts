@@ -8,8 +8,8 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  num1:number=0
-  num2:number=0
+  num1:number;
+  num2:number;
   resultado:number=0
 
   sumar():void{
