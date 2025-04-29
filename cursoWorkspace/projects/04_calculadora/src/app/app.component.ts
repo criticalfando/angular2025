@@ -12,7 +12,7 @@ export class AppComponent {
   num2:number=0
   resultado:number=0
 
-  sumar(){
+  sumar():void{
 
     this.resultado=this.num1+this.num2;
 
@@ -21,7 +21,7 @@ export class AppComponent {
 
   }
 
-  restar(){
+  restar():void{
 
     this.resultado=this.num1-this.num2;
 
@@ -30,7 +30,7 @@ export class AppComponent {
 
   }
 
-  multiplicar(){
+  multiplicar():void{
 
     this.resultado=this.num1*this.num2;
 
@@ -39,7 +39,7 @@ export class AppComponent {
 
   }
 
-  dividir(){
+  dividir():void{
 
     this.resultado=this.num1/this.num2;
 
