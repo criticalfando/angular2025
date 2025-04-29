@@ -68,6 +68,10 @@ Para hacer llamadas a fuera de la funcion usamos "this."
 Para importar librerias a Angular:
 
 en el decorador añadir: 
-
   imports: [modulo],
 
+// para crear una aplicacion con un workspace se usa
+ng generate application "name"
+
+// Para ejecutar una aplicacion dentro de un workspace
+ng serve "name" -o 
