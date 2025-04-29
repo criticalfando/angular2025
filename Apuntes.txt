@@ -51,8 +51,10 @@ HTMLElement: Para recoger desde el HTML
 
 // Desactivar "strict:" en tsconfig.json 
 
-
 // Similar al id, pero creando una variable directamente para recogerla en otro lugar sin dom.getelement
+Para utilizarla debemos añadir a los imports:
+    imports: [FormsModule],
+
 [{ngModel}]="codigo"
 
 // 
@@ -70,8 +72,21 @@ Para importar librerias a Angular:
 en el decorador añadir: 
   imports: [modulo],
 
+//Para crear un workspace
+ng new cursoWorkspace --no-create-application
+
 // para crear una aplicacion con un workspace se usa
 ng generate application "name"
 
 // Para ejecutar una aplicacion dentro de un workspace
 ng serve "name" -o 
+
+// Propiedad para generar algo tantas veces como se le es indicado
+Para utilizarla debemos añadir a los imports:
+    imports: [CommonModule],
+Para recorrer un array:
+
+*ngFor="let variable of array"
+
+Para hacer algo en caso de ser true:
+*ngIf=true/false
