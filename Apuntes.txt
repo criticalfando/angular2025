@@ -1,0 +1,73 @@
+
+// Instalar nodejs + Angular
+
+Terminal: npm install -g @angular/cli
+
+/////
+
+Para crear un proyecto debemos usar
+
+ng new nombreApp
+
+/// 
+
+Para abrir una pagina de Angular habria que usar: 
+
+ng serve -o
+
+//
+
+Eliminar componentes Router en .ts
+Eliminar contenido del .html
+
+// 
+
+Edicion de la pagina es en 
+
+/src/app/app.component.ts - Scripts
+/src/app/app.component.html - HTML
+
+///
+
+Para crear funciones en typescript
+
+funcion():tipo{
+
+}
+
+edad:number;
+edad=20;
+const descuento:number=10;
+iva.boolean=true
+
+
+/// Tipos de datos de Typescript:
+
+void: Tipo vacio
+number: Tipo numeral
+string: 
+boolean: True/False
+HTMLElement: Para recoger desde el HTML
+
+// Desactivar "strict:" en tsconfig.json 
+
+
+// Similar al id, pero creando una variable directamente para recogerla en otro lugar sin dom.getelement
+[{ngModel}]="codigo"
+
+// 
+{{}} se referiere a un interpolador, que es util para injectar una variable.
+
+//
+Para hacer llamadas a fuera de la funcion usamos "this."
+
+//
+@component es llamado "decorador"
+
+//
+Para importar librerias a Angular:
+
+en el decorador añadir: 
+
+  imports: [modulo],
+
