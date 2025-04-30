@@ -118,6 +118,14 @@ p.email="Nando@gmail.com";
 Con: 
 export class Contacto{
   nombre:string;
+  constructor(nombre:string,email:string,telefono:string){
+    this.nombre=nombre;
+    this.email=nombre;
+    this.telefono=telefono;
+
+  }
 }
+
+Puede incluir una funcion llamada constructor
 
 

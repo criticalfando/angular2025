@@ -17,11 +17,7 @@ export class AgendaComponent {
   visible:boolean=false
 
   guardar():void{
-    let c=new Contacto();
-    c.nombre=this.nombre
-    c.email=this.email
-    c.telefono=this.telefono
-
+    let c=new Contacto(this.nombre,this.telefono,this.email);
     this.agenda.push(c)
   }
 
