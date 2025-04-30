@@ -90,3 +90,34 @@ Para recorrer un array:
 
 Para hacer algo en caso de ser true:
 *ngIf=true/false
+
+// JSON en Typescript
+
+let persona{nombre:"nando",edad:23,email:"nando@gmail.com"};
+
+Son manejados por clases 
+|
+\/
+
+export class Persona{
+  nombre:string;
+  edad:number;
+  email:string;
+}
+
+Habria que crear el objeto con:
+
+// El nombre de la variable es indiferente
+let p=new Persona();
+p.nombre="Nando";
+p.edad=27;
+p.email="Nando@gmail.com";
+
+// Se crea un archivo en model/nombre.ts para el objeto
+
+Con: 
+export class Contacto{
+  nombre:string;
+}
+
+
