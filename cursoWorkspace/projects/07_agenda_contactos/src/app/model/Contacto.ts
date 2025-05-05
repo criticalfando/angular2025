@@ -4,7 +4,7 @@ export class Contacto{
   telefono:string
   constructor(nombre:string,email:string,telefono:string){
     this.nombre=nombre;
-    this.email=nombre;
+    this.email=email;
     this.telefono=telefono;
   }
 }

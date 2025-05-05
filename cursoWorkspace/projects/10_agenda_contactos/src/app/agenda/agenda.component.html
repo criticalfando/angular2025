@@ -1,0 +1,18 @@
+Nombre:<input type="text" [(ngModel)]="nombre"><br><br>
+Telefono:<input type="text" [(ngModel)]="numero"><br><br>
+<button (click)="guardar()">Guardar</button>
+<button (click)="mostrar()">Mostrar</button>
+<br><br>
+<table border="1" *ngIf="contactos">
+  <tr>
+    <th>Nombre</th>
+    <th>Telefono</th>
+  </tr>
+  <tr *ngFor="let c of contactos; let i = index">
+  <td>{{c.nombre}}</td>
+  <td>{{c.numero}}</td>
+  <td>
+    <button (click)="eliminar(i)">Borrar</button>
+  </td>
+  </tr>
+</table>

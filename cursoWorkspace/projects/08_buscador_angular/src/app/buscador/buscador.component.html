@@ -1,0 +1,17 @@
+<h1>Guglí</h1>
+<hr>
+<select [(ngModel)]="tematicaSeleccionada" (change)="obtenerResultados()">
+  <option value="todos">--TODOS--</option>
+  <option *ngFor="let t of tematicas" value="{{t}}">{{t}}</option>
+</select>
+<hr>
+<table border="1">
+  <tr>
+    <th>Tematica</th>
+    <th>Direccion</th>
+  </tr>
+  <tr *ngFor="let r of resultados">
+    <td>{{r.tematica}}</td>
+    <td>{{r.direccion}}</td>
+  </tr>
+</table>

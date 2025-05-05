@@ -5,25 +5,29 @@ import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-agenda',
-  imports: [CommonModule,FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './agenda.component.html',
   styleUrl: './agenda.component.css'
 })
 export class AgendaComponent {
-  nombre:string
-  email:string
-  telefono:string
+  nombre:string;
+  email:string;
+  telefono:string;
   agenda:Contacto[]=[];
-  visible:boolean=false
+  visible:boolean=false;
 
   guardar():void{
-    let c=new Contacto(this.nombre,this.telefono,this.email);
+    let c=new Contacto(this.nombre,this.email,this.telefono);
     this.agenda.push(c)
   }
 
   mostrar():void{
     this.visible=!this.visible;
 
+  }
+
+  borrar(i: number):void{
+    this.agenda.splice(i, 1);
   }
 
 }

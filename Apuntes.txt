@@ -129,3 +129,5 @@ export class Contacto{
 Puede incluir una funcion llamada constructor
 
 
+Para crear un conjunto en TS, debemos de indicar de que tipo es: 
+variable=Set<tipo>
