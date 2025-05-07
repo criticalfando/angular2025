@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { Contacto } from '../model/Contacto';
-import { AgendaService } from '../service/AgendaService';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Contacto } from '../model/Contacto';
+import { AgendaService } from '../service/agenda.service';
 
 @Component({
   selector: 'app-agenda',
@@ -16,10 +16,9 @@ export class AgendaComponent {
   numero:string;
 
   contactos:Contacto[];
-  agenda:AgendaService;
 
-  constructor(){
-    this.agenda=new AgendaService();
+  constructor(private agenda:AgendaService){
+    
   }
 
   guardar(){

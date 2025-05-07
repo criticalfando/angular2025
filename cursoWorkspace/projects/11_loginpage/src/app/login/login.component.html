@@ -1,0 +1,30 @@
+<h1>Panel de usuario</h1>
+<hr>
+<p>Usuario: </p><input type="text"><br>
+<p>Contraseña: </p><input type="password"><br><br>
+<button (click)="validar()">Login</button><button (click)="registroVisible = !registroVisible">Registro</button>
+<hr>
+<table *ngIf="registroVisible">
+  <tr>
+    <td><h1>Registro</h1></td>
+  </tr>
+  <tr>
+    <td><p>Usuario: </p></td>
+    <td><input type="text"></td>
+  </tr>
+  <tr>
+    <td><p>Contraseña: </p></td>
+    <td><input type="password"></td>
+  </tr>
+  <tr>
+    <td><p>Email: </p></td>
+    <td><input type="text"></td>
+  </tr>
+  <tr>
+    <td><p>Telefono: </p></td>
+    <td><input type="text"></td>
+  </tr>
+  <tr>
+    <td><button (click)="registro()">Registrarse</button></td>
+  </tr>
+</table>

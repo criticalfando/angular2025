@@ -131,3 +131,19 @@ Puede incluir una funcion llamada constructor
 
 Para crear un conjunto en TS, debemos de indicar de que tipo es: 
 variable=Set<tipo>
+
+SPA: Single PAge Application
+
+Creacion de rutas
+
+etiqueta <a routerLink="/url"></a>
+
+se puede realizar por codigo
+this.router.navigate([/url])
+
+se realiza en la tabla de rutas, app.routes
+
+Routes=({
+  path:"url",
+  component:"",
+})

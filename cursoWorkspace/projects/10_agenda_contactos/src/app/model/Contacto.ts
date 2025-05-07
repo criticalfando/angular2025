@@ -1,8 +1,10 @@
 export class Contacto{
-  nombre:string
-  numero:string
-  constructor(nombre:string,numero:string){
+  nombre:string;
+  telefono:string;
+
+
+  constructor(nombre:string,telefono:string){
     this.nombre=nombre;
-    this.numero=numero;
+    this.telefono=telefono;
   }
 }
