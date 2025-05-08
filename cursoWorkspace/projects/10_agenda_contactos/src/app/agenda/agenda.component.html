@@ -10,7 +10,7 @@ Telefono:<input type="text" [(ngModel)]="numero"><br><br>
   </tr>
   <tr *ngFor="let c of contactos; let i = index">
   <td>{{c.nombre}}</td>
-  <td>{{c.numero}}</td>
+  <td>{{c.telefono}}</td>
   <td>
     <button (click)="eliminar(i)">Borrar</button>
   </td>

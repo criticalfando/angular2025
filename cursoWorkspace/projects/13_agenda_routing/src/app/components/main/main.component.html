@@ -1,0 +1,11 @@
+<div class="container">
+  <h3>Agenda</h3>
+  <a [routerLink]="['/agregar']" routerLinkActive="router-link-active" class="link">Añadir Contacto</a>
+  <a [routerLink]="['/busqueda']" routerLinkActive="router-link-active" class="link">Buscar Contacto</a>
+  <a [routerLink]="['/all']" routerLinkActive="router-link-active" class="link">Todos los Contactos</a>
+
+  <br><hr>
+  <router-outlet>
+
+  </router-outlet>
+</div>
