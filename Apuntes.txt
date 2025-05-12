@@ -147,3 +147,44 @@ Routes=({
   path:"url",
   component:"",
 })
+
+
+// Bases de datos
+
+Lenguaje universal para acceder a bases de datos relacionales
+
+Sentencias de alto nivel
+
+Dos grupos de instrucciones:
+  DDL: Instrucciones para crear y manipular la estructura de las tablas
+
+  DML: Instrucciones para la manipulacion de datos.
+    Select: Recuperacion 
+      SELECT campo1,campo2, FROM tabla WHERE condition
+    Insert: añadir
+      INSERT INTRO tabla (campo1,campo2,...) values (valor1,valor2,...)
+    Delete: Eliminacion
+
+    Update: Actualizacion
+
+1. Lista de movimientos de la cuenta 1000 - 
+
+  SELECT
+
+2. Subir 100 euros a todos los movimientos de tipo ingreso - 
+
+  UPDATE bancabd.movimientos SET cantidad=cantidad+100 WHERE operacion="ingreso"
+
+3. Lista de movimientos de las cuentas de ahorro -
+
+  SELECT * FROM bancabd.cuentas WHERE tipocuenta="ahorro"
+  SELECT * FROM bancabd.movimientos WHERE idCuenta="1000,2000,4000"
+  
+3.2 Lista de movimientos de las cuentas de ahorro (join)-
+
+  SELECT * FROM bancabd.movimientos where idCuenta in 
+  (select numeroCuenta from bancabd.cuentas where tipoCuenta="ahorro");
+
+  SELECT * FROM bancabd.movimientos 
+  inner join bancabd.cuentas on movimientos.idCuenta = cuentas.numeroCuenta 
+  where cuentas.tipocuenta = "ahorro";
