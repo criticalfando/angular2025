@@ -1,0 +1,21 @@
+<div class="container">
+  <button (click)="verPaises()">Ver paises</button>
+  <hr>
+  <table *ngIf="paises.length>0">
+    <tr>
+      <th>Nombre</th>
+      <th>Capital</th>
+      <th>Continente</th>
+      <th>Poblacion</th>
+      <th>Bandera</th>
+    </tr>
+    <tr *ngFor="let p of paises">
+      <td>{{p.name}}</td>
+      <td>{{p.capital}}</td>
+      <td>{{p.region}}</td>
+      <td>{{p.population}}</td>
+      <td><img src="{{p.flag}}" width="80px" height="50px"></td>
+    </tr>
+  </table>
+</div>
+

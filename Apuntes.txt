@@ -179,7 +179,7 @@ Dos grupos de instrucciones:
 
   SELECT * FROM bancabd.cuentas WHERE tipocuenta="ahorro"
   SELECT * FROM bancabd.movimientos WHERE idCuenta="1000,2000,4000"
-  
+
 3.2 Lista de movimientos de las cuentas de ahorro (join)-
 
   SELECT * FROM bancabd.movimientos where idCuenta in 
@@ -188,3 +188,74 @@ Dos grupos de instrucciones:
   SELECT * FROM bancabd.movimientos 
   inner join bancabd.cuentas on movimientos.idCuenta = cuentas.numeroCuenta 
   where cuentas.tipocuenta = "ahorro";
+
+  SELECT movimientos.* FROM bancabd.movimientos,bancabd.cuentas 
+  where  movimientos.idCuenta = cuentas.numeroCuenta and cuentas.tipocuenta = "ahorro";
+
+  SELECT c.* 
+  FROM bancabd.movimientos as c 
+  join bancabd.cuentas d
+  on c.idCuenta = d.numeroCuenta
+  where tipocuenta="ahorro";
+
+4. Sacar el nombre y el dni de los propietarios de las cuentas de "1000"
+
+  SELECT clientes.nombre, clientes.dni 
+  FROM bancabd.clientes
+  JOIN bancabd.titulares 
+  ON titulares.idcliente = clientes.dni
+  JOIN bancabd.cuentas
+  ON cuentas.numerocuenta = titulares.idCuenta
+  WHERE cuentas.numerocuenta="1000";
+
+
+4. Sacar los dni de las personas que tengan cuentas con mas de 1000 euros
+
+  SELECT clientes.nombre, clientes.dni , cuentas.numeroCuenta
+  FROM bancabd.clientes
+  JOIN bancabd.titulares 
+  ON titulares.idcliente = clientes.dni
+  JOIN bancabd.cuentas
+  ON cuentas.numerocuenta = titulares.idCuenta
+  WHERE cuentas.saldo>="1000";
+
+
+Servicios REST 
+
+
+Peticiones HTTP desde Angular
+
+Se realizan a traves del componente HttpClient en la libreria http 
+
+Este componenete debe ser utilizado desde un ervicio
+
+export class HttpService {
+  constructor(private http:HttpClient){
+  
+  }
+}
+
+El proveedor del modulo debe ser declarado en app.config:
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideHttpClient(),...]
+}
+
+Querys HTTP:
+
+GET
+  Devuelve un Observable<Object>
+    Observable: Una peticion HTTP te devuelve un observable, y el componente controlador se puede subscribir,
+    para procesar el resultado cuanto este disponible.
+
+    public obtener(): Observable<Algo>{
+      return this.http.get<Pais[]>(this.url);
+    }
+
+    cargarAlgo():void{
+      this.algoservice.obteneralgo().subscribe(data=>this.algo=data)
+    }
+POST
+PUT
+DELETE
+
