@@ -1,5 +1,7 @@
 <div class="container">
   <button (click)="verPaises()">Ver paises</button>
+  <h3>Selecciona un continente:</h3>
+  <select (change)="filtrarPorContinente()"></select>
   <hr>
   <table *ngIf="paises.length>0">
     <tr>

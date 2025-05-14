@@ -259,3 +259,218 @@ POST
 PUT
 DELETE
 
+
+/// Ejercicio del 12/05
+
+Antonio Martín
+Antonio Martín dice://método que devuelva un observable con un array de string (nombres de continente)
+  continentes()😮bservable<string[]>{
+    return this.http.get<Pais[]>(this.url) //Observable<Pais[]>
+    //.pipe(map(paises=>
+paises.map
+(p=>p.region))) //Observable<string[]>; Así habría quedado si no hubieramos tenido que quitar duplicados
+    .pipe(map(paises=>[...new Set(
+paises.map
+(p=>p.region))])) //Observable<string[]>;
+  }
+  //método que devuelve un observable con los pasises del continente recibido
+  paisesContinente(continente😒tring)😮bservable<Pais[]>{
+    return this.http.get<Pais[]>(this.url) //Observable<Pais[]>
+    .pipe(map(paises=>paises.filter(p=>p.region==continente)));
+  } 
+
+10:22
+
+Antonio Martín dice:continentes😒tring[];
+  continenteSeleccionado😒tring;
+  paisesContinente😛ais[];
+  constructor(private paisesService😛aisesService){
+    this.paisesService.continentes() //Observable<string[]>
+    .subscribe(resultado=>this.continentes=resultado);
+  }
+  cargarPaisesContinente():void{
+    this.paisesService.paisesContinente(this.continenteSeleccionado)//Observable<Pais[]>
+    .subscribe(resultado=>this.paisesContinente=resultado);
+
+  } 
+
+10:37
+
+A
+Ariani
+Ariani dice:<div class="container">
+
+
+
+Seleccione  temática:
+<select [(ngModel)]="continente" (change)="paisesPorContinente()">
+
+  <option *ngFor="let t of continentes" value="{{t}}">
+    {{t}}
+  </option>
+</select>
+  <table class="table table-striped" *ngIf="resultado">
+  <thead>
+<tr>
+  <th>Nombre</th>
+  <th>Capital</th>
+  <th>Continente</th>
+  <th>Población</th>
+  <th>Bandera</th>
+  </tr>
+</thead>
+<tbody>
+  <tr *ngFor="let c of resultado">
+    <td>{{
+c.name
+}}</td>
+    <td>{{
+c.capital
+}}</td>
+    <td>{{c.region}}</td>
+    <td>{{c.population}}</td>
+    <td><img src="{{c.flag}}" width="50px"> </td>
+  </tr>
+</tbody>
+</table>
+</div> 
+
+10:38
+
+
+
+avatar
+Antonio Martín
+Antonio Martín dice:<div class="container">
+  Seleccione  continente:
+  <select [(ngModel)]="continenteSeleccionado" (change)="cargarPaisesContinente()">
+
+    <option *ngFor="let t of continentes" value="{{t}}">
+      {{t}}
+    </option>
+  </select>
+
+
+
+  <br><br>
+  <table class="table table-striped" *ngIf="paisesContinente">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Capital</th>
+        <th>Continente</th>
+        <th>Población</th>
+        <th>Bandera</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of paisesContinente">
+        <td>{{
+p.name
+}}</td>
+        <td>{{
+p.capital
+}}</td>
+        <td>{{p.region}}</td>
+        <td>{{p.population}}</td>
+        <td><img src="{{p.flag}}" width="50px"></td>
+      </tr>
+    </tbody>
+  </table>
+</div> 
+
+10:47
+
+Fellow Jitster
+Fellow Jitster dice:Horacio 
+
+10:54
+
+Fellow Jitster dice:import { Component } from '@angular/core';
+import { PaisesService } from '../../serivce/paises.service';
+import { Pais } from '../../model/Pais';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-paises',
+  imports: [CommonModule, FormsModule],
+  templateUrl: './paises.component.html',
+  styleUrl: './paises.component.css'
+})
+
+
+export class PaisesComponent {
+continentes😒tring[];
+continenteSeleccionado😒tring;
+paisesContinente😛ais[];
+constructor(private paisesService😛aisesService){
+  this.paisesService.continentes()//Observable string
+ .subscribe(resultado=>this.continentes=resultado);
+
+}
+cargarPaisesContinente():void{
+  this.paisesService.paisesContinente(this.continenteSeleccionado)//Observable<Pais[]>
+  .subscribe(resultado=>this.paisesContinente=resultado);
+} 
+
+10:54
+
+Fellow Jitster dice:import { Component } from '@angular/core';
+import { PaisesService } from '../../serivce/paises.service';
+import { Pais } from '../../model/Pais';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-paises',
+  imports: [CommonModule, FormsModule],
+  templateUrl: './paises.component.html',
+  styleUrl: './paises.component.css'
+})
+
+
+export class PaisesComponent {
+continentes😒tring[];
+continenteSeleccionado😒tring;
+paisesContinente😛ais[];
+constructor(private paisesService😛aisesService){
+  this.paisesService.continentes()//Observable string
+ .subscribe(resultado=>this.continentes=resultado);
+
+}
+cargarPaisesContinente():void{
+  this.paisesService.paisesContinente(this.continenteSeleccionado)//Observable<Pais[]>
+  .subscribe(resultado=>this.paisesContinente=resultado);
+} 
+
+10:54
+
+avatar
+Antonio Martín
+Antonio Martín dice:paisesContinente(continente😒tring)😮bservable<Pais[]>{
+    return this.http.get<Pais[]>(this.url) //Observable<Pais[]>
+    .pipe(map(paises=>paises.filter(p=>p.region==continente)));
+  } 
+
+10:59
+
+Fellow Jitster
+Fellow Jitster dice:export class PaisesService {
+  url😒tring= "
+https://restcountries.com/v2/all
+";
+  constructor(private http: HttpClient) {} 
+
+
+// Docker Image 14/05/2025
+
+docker pull ajms666/imagenescurso:buscador
+
+docker run --name=buscador -p 8000:8000 ajms666/imagenescurso:buscador
+
+
+
+
+
+

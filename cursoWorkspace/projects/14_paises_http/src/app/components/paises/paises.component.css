@@ -19,3 +19,17 @@ button {
   margin: 20px auto;
   padding: 10px 20px;
 }
+
+h3 {
+  display:block;
+  text-align:center;
+  margin: 20px auto;
+  padding: 10px 20px;
+}
+
+select {
+  display:block;
+  text-align:center;
+  margin: 20px auto;
+  padding: 10px 20px;
+}

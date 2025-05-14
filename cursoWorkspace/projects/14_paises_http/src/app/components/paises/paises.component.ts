@@ -11,7 +11,7 @@ import { CommonModule } from '@angular/common';
 })
 export class PaisesComponent {
   paises:Pais[]
-
+  paisesFiltrados: Pais[] =[]
   constructor(private paisesService:PaisesService){
 
   }
