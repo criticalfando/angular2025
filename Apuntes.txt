@@ -469,6 +469,14 @@ docker pull ajms666/imagenescurso:buscador
 
 docker run --name=buscador -p 8000:8000 ajms666/imagenescurso:buscador
 
+// Install json-server
+
+npm install -g json-server
+
+// Iniciar 
+
+json-server --watch nombre.json
+
 
 
 
