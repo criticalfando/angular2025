@@ -20,6 +20,7 @@ export class AltaComponent {
       error:  err=>this.mensaje="No se pudo dar de alta el contacto"
       }
     )
+    console.log(this.mensaje)
   }
 
 }
