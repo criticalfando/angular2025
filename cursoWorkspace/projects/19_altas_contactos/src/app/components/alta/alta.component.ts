@@ -1,10 +1,12 @@
+import { CommonModule } from '@angular/common';
 import { Contacto } from '../../model/Contacto';
 import { ContactosService } from './../../service/contactos.service';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-alta',
-  imports: [],
+  imports: [CommonModule, FormsModule],
   templateUrl: './alta.component.html',
   styleUrl: './alta.component.css'
 })

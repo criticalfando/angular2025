@@ -11,6 +11,6 @@ export class ContactosService {
   constructor(private http:HttpClient) { }
 
   alta(contacto:Contacto):Observable<any>{
-    return this.http.post(this.url,contacto)
+    return this.http.post(this.url+"/alta",contacto)
   }
 }
